@@ -10,16 +10,73 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    @IBOutlet private weak var display: UILabel!
+    
+    private var isInMiddleOfTypying: Bool = false
+    private var isFloat: Bool = false
+    
+    @IBAction private func touchDigit(sender: UIButton) {
+        let digit = sender.currentTitle!
+        
+        if isInMiddleOfTypying {
+            if digit == "." && isFloat{
+                return
+            } else if digit == "." {
+                isFloat = true
+            }
+            display.text = display.text! + digit
+            
+        } else {
+            if digit == "."  {
+                display.text = "0."
+                isFloat = true
+            } else {
+                display.text = digit
+            }
+            
+        }
+        isInMiddleOfTypying = true
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    private var displayValue: Double {
+        get {
+            return Double(display.text!)!
+        }
+        set {
+            display.text = String(newValue)
+        }
     }
-
+    
+    private var brain = CalculatorBrain()
+    
+    @IBAction private func performOperation(sender: UIButton) {
+        if isInMiddleOfTypying {
+            brain.setOperand(displayValue)
+            isInMiddleOfTypying = false
+            isFloat = false
+        }
+        
+        if let mathSymbol = sender.currentTitle {
+            brain.performOperation(mathSymbol)
+        }
+        if(brain.result - floor(brain.result) != 0) {
+            displayValue = brain.result
+        }else {
+            display.text = String(Int(brain.result))
+        }
+        
+        
+    }
+    
+    @IBAction func Clear(sender: UIButton) {
+        brain.clear()
+        display.text = "0"
+        isFloat = false
+        isInMiddleOfTypying = false
+    }
 
 }
 
