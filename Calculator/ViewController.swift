@@ -52,6 +52,19 @@ class ViewController: UIViewController {
     
     private var brain = CalculatorBrain()
     
+    var savedProgram: CalculatorBrain.PropertyList?
+    
+    @IBAction func save(sender: UIButton) {
+            savedProgram = brain.program
+    }
+    
+    
+    @IBAction func store(sender: UIButton) {
+        if savedProgram != nil {
+            brain.program = savedProgram!
+            displayValue = brain.result
+        }
+    }
     @IBAction private func performOperation(sender: UIButton) {
         if isInMiddleOfTypying {
             brain.setOperand(displayValue)
@@ -76,6 +89,7 @@ class ViewController: UIViewController {
         display.text = "0"
         isFloat = false
         isInMiddleOfTypying = false
+        savedProgram = nil
     }
 
 }

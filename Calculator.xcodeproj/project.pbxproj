@@ -23,7 +23,7 @@
 		D1F1CAA61D09024000FD2AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1F1CAA91D09024000FD2AA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1F1CAAB1D09024000FD2AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1F1CAB21D09115D00FD2AA0 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = Calculator/CalculatorBrain.swift; sourceTree = "<group>"; };
+		D1F1CAB21D09115D00FD2AA0 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,6 @@
 		D1F1CA931D09024000FD2AA0 = {
 			isa = PBXGroup;
 			children = (
-				D1F1CAB21D09115D00FD2AA0 /* CalculatorBrain.swift */,
 				D1F1CA9E1D09024000FD2AA0 /* Calculator */,
 				D1F1CA9D1D09024000FD2AA0 /* Products */,
 			);
@@ -59,6 +58,7 @@
 			children = (
 				D1F1CAB11D0903D500FD2AA0 /* Supporting Files */,
 				D1F1CAA11D09024000FD2AA0 /* ViewController.swift */,
+				D1F1CAB21D09115D00FD2AA0 /* CalculatorBrain.swift */,
 				D1F1CAA31D09024000FD2AA0 /* Main.storyboard */,
 			);
 			path = Calculator;
@@ -303,6 +303,7 @@
 				D1F1CAB01D09024000FD2AA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
